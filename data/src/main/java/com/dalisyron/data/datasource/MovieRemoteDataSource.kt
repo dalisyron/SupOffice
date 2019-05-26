@@ -1,0 +1,8 @@
+package com.dalisyron.data.datasource
+
+import com.dalisyron.data.entity.MovieInfoEntity
+import io.reactivex.Single
+
+interface MovieRemoteDataSource {
+    fun getDiscoverMovies() : Single<MovieInfoEntity>
+}
