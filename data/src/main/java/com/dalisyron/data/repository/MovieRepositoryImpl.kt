@@ -9,8 +9,8 @@ import io.reactivex.Single
 class MovieRepositoryImpl(private val movieRemoteDataSource: MovieRemoteDataSource) : MovieRepository {
     override fun getDiscoverMovies(): Single<List<MovieInfo>> {
         return movieRemoteDataSource.getDiscoverMovies().map { movieInfoEntityList ->
-            movieInfoEntityList.map {
-                it -> it.toMovieInfo()
+            movieInfoEntityList.map { it ->
+                it.toMovieInfo()
             }
         }
     }

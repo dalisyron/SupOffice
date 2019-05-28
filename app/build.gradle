@@ -32,6 +32,9 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation project(":data")
     implementation project(":remote")
+    implementation "com.google.dagger:dagger:$libraries.dagger"
+    implementation "io.reactivex.rxjava2:rxkotlin:$libraries.rxKotlin"
+    implementation "io.reactivex.rxjava2:rxandroid:$libraries.rxAndroid"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'

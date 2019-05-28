@@ -14,17 +14,19 @@ import retrofit2.http.GET
 interface MovieService {
 
     @GET("discover/movie")
-    fun getDiscoverMovies() : Single<DiscoverMoviesResponseDto>
+    fun getDiscoverMovies(): Single<DiscoverMoviesResponseDto>
 
     companion object {
-        const val BASE_URL : String = "https://api.themoviedb.org/3/"
-        fun create() : MovieService {
-            val okHttpClientBuilder : OkHttpClient.Builder = OkHttpClient.Builder()
+        const val BASE_URL: String = "https://api.themoviedb.org/3/"
+        fun create(): MovieService {
+            val okHttpClientBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
             okHttpClientBuilder.addInterceptor(
                 object : Interceptor {
                     override fun intercept(chain: Interceptor.Chain): Response {
                         var request = chain.request()
-                        val url = request.url().newBuilder().addQueryParameter("api_key", "140a29128656a78bf9d8a496df29cb7f").build()
+                        val url =
+                            request.url().newBuilder().addQueryParameter("api_key", "140a29128656a78bf9d8a496df29cb7f")
+                                .build()
                         request = request.newBuilder().url(url).build()
                         return chain.proceed(request)
                     }
@@ -38,4 +40,10 @@ interface MovieService {
                 .build().create()
         }
     }
+}
+
+fun main() {
+    val x = MovieService.create()
+
+    x.getDiscoverMovies().subscribe({ it -> print(it) }, { it -> print(it) })
 }
