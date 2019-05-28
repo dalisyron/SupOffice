@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        /*
         val useCaseExecutorThread = object : UseCaseExecutorThread {
             override val scheduler: Scheduler
                 get() = Schedulers.io()
@@ -40,5 +40,6 @@ class MainActivity : AppCompatActivity() {
             Unit,
             { it -> println("Usecase response " + it.toString()) },
             { it -> print(it) })
+        */
     }
 }
