@@ -1,6 +1,5 @@
 package com.dalisyron.data.repository
 
-import com.dalisyron.data.Mappers.toMovieInfo
 import com.dalisyron.data.datasource.MovieRemoteDataSource
 import com.dalisyron.data.entity.MovieInfoEntity
 import io.reactivex.Single
