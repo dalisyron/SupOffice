@@ -8,7 +8,7 @@ import com.dalisyron.remote.dto.DiscoverMoviesResponseDto
 import io.reactivex.Single
 
 class MovieRemoteDataSourceImpl(private val movieService: MovieService) : MovieRemoteDataSource {
-    override fun getDiscoverMovies(): Single<MovieInfoEntity> {
+    override fun getDiscoverMovies(): Single<List<MovieInfoEntity>> {
         return movieService.getDiscoverMovies().map { discoverMoviesDto : DiscoverMoviesResponseDto ->
             discoverMoviesDto.items.map {
                 it.toMovieEntity()
