@@ -60,6 +60,6 @@ class HomeFragment : OnHomeMovieItemClickListener, Fragment(){
     }
 
     override fun onItemClicked(movieInfoEntity: MovieInfoEntity) {
-        Toast.makeText(requireContext(), "Item clicked", Toast.LENGTH_LONG)
+        Toast.makeText(requireContext(), "Item clicked", Toast.LENGTH_LONG).show()
     }
 }
