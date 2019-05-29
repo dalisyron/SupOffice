@@ -19,7 +19,7 @@ ext {
             materialDesign  : "1.0.0",
             navigation      : "2.0.0",
             gson            : "2.8.5",
-            easypermissions : "3.0.0",
+            easyperpimissions : "3.0.0",
             rxjava2_debug   : "1.3.0",
             crashlytics     : "2.9.9",
             javax_inject    : "1",
