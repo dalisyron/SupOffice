@@ -5,4 +5,6 @@ import io.reactivex.Single
 
 interface MovieRemoteDataSource {
     fun getDiscoverMovies(): Single<List<MovieInfoEntity>>
+
+    fun getGenreNameById(id : Int) : Single<String>
 }

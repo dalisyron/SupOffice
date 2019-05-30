@@ -11,4 +11,5 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:$libraries.okHttp"
 
     implementation project(":data")
+    implementation 'junit:junit:4.12'
 }

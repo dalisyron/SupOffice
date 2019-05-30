@@ -1,6 +1,7 @@
 package com.dalisyron.remote.api
 
 import com.dalisyron.remote.dto.DiscoverMoviesResponseDto
+import com.dalisyron.remote.dto.MovieGenresListResponse
 import io.reactivex.Single
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -14,7 +15,10 @@ import retrofit2.http.GET
 interface MovieService {
 
     @GET("discover/movie")
-    fun getDiscoverMovies(): Single<DiscoverMoviesResponseDto>
+    fun getDiscoverMoviesResponse(): Single<DiscoverMoviesResponseDto>
+
+    @GET("genre/movie/list")
+    fun getMovieGenreListResponse(): Single<MovieGenresListResponse>
 
     companion object {
         const val BASE_URL: String = "https://api.themoviedb.org/3/"
