@@ -7,8 +7,9 @@ import com.dalisyron.remote.api.MovieService
 import com.dalisyron.remote.dto.DiscoverMoviesResponseDto
 import com.dalisyron.remote.dto.GenreDto
 import io.reactivex.Single
+import javax.inject.Inject
 
-class MovieRemoteDataSourceImpl(private val movieService: MovieService) : MovieRemoteDataSource {
+class MovieRemoteDataSourceImpl @Inject constructor(private val movieService: MovieService) : MovieRemoteDataSource {
     override fun getDiscoverMovies(): Single<List<MovieInfoEntity>> {
         return movieService.getDiscoverMoviesResponse().map { discoverMoviesDto: DiscoverMoviesResponseDto ->
             discoverMoviesDto.items.map {
