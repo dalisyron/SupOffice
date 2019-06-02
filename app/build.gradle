@@ -28,27 +28,39 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation project(":data")
     implementation project(":remote")
 
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //ui
+    implementation "androidx.constraintlayout:constraintlayout:$libraries.constraintLayout"
+    implementation "androidx.recyclerview:recyclerview:$libraries.recyclerView"
+
+    //retrofit
     implementation "com.squareup.retrofit2:retrofit:$libraries.retrofit"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$libraries.retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$libraries.retrofit"
 
+    //dagger
     implementation "com.google.dagger:dagger:$libraries.dagger"
     kapt "com.google.dagger:dagger-compiler:$libraries.dagger"
 
+    //rx
     implementation "io.reactivex.rxjava2:rxkotlin:$libraries.rxKotlin"
     implementation "io.reactivex.rxjava2:rxandroid:$libraries.rxAndroid"
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
+
+    //picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    //mvvm
+    implementation "androidx.lifecycle:lifecycle-extensions:$libraries.lifecycle"
+
+    //test
+    testImplementation "junit:junit:$testLibraries.junit"
+    androidTestImplementation "androidx.test:runner:$testLibraries.androidXTestRunner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$testLibraries.espresso"
+
 }
