@@ -13,7 +13,7 @@ import com.dalisyron.supoffice.R
 
 class DetailFragment : Fragment() {
 
-    private var slug : Int? = null
+    private var slug: Int? = null
 
     val viewModelFactory: DetailViewModelFactory by lazy {
         DetailViewModelFactory()
@@ -28,6 +28,7 @@ class DetailFragment : Fragment() {
         MyApplication.component.inject(this)
         this.slug = arguments?.getInt(MOVIE_ID_KEY)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,7 +45,7 @@ class DetailFragment : Fragment() {
     companion object {
         private const val MOVIE_ID_KEY = "movie_id"
 
-        fun create(id : Int) : DetailFragment {
+        fun create(id: Int): DetailFragment {
             return DetailFragment().apply {
                 arguments = Bundle().apply { putInt(MOVIE_ID_KEY, id) }
             }

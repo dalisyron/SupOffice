@@ -2,11 +2,10 @@ package com.dalisyron.remote.api
 
 import org.junit.Before
 import org.junit.Test
-import javax.inject.Inject
 
 class MovieServiceImplTest {
 
-    lateinit var instance : MovieService
+    lateinit var instance: MovieService
 
     @Before
     fun init() {

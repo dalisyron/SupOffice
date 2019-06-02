@@ -1,10 +1,7 @@
 package com.dalisyron.supoffice.di
 
-import com.dalisyron.data.datasource.MovieRemoteDataSource
 import com.dalisyron.remote.api.MovieService
-import com.dalisyron.remote.datasource.MovieRemoteDataSourceImpl
 import com.dalisyron.supoffice.BuildConfig
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor

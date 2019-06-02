@@ -8,6 +8,6 @@ import dagger.Module
 @Module
 abstract class DataModule {
     @Binds
-    abstract fun bindMovieRemoteDataSource(movieRemoteDataSourceImpl: MovieRemoteDataSourceImpl) : MovieRemoteDataSource
+    abstract fun bindMovieRemoteDataSource(movieRemoteDataSourceImpl: MovieRemoteDataSourceImpl): MovieRemoteDataSource
 
 }
