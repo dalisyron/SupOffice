@@ -3,6 +3,7 @@ package com.dalisyron.supoffice.di
 import com.dalisyron.data.datasource.MovieRemoteDataSource
 import com.dalisyron.remote.api.MovieService
 import com.dalisyron.remote.datasource.MovieRemoteDataSourceImpl
+import com.dalisyron.supoffice.BuildConfig
 import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor
@@ -26,7 +27,7 @@ class RemoteModule {
                 override fun intercept(chain: Interceptor.Chain): Response {
                     var request = chain.request()
                     val url =
-                        request.url().newBuilder().addQueryParameter("api_key", "140a29128656a78bf9d8a496df29cb7f")
+                        request.url().newBuilder().addQueryParameter("api_key", BuildConfig.API_KEY)
                             .build()
                     request = request.newBuilder().url(url).build()
                     return chain.proceed(request)

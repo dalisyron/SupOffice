@@ -1,6 +1,7 @@
 package com.dalisyron.supoffice.ui.home
 
 
+import android.graphics.Movie
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +12,9 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dalisyron.data.entity.MovieInfoEntity
-import com.dalisyron.remote.api.MovieService
 import com.dalisyron.supoffice.MyApplication
 import com.dalisyron.supoffice.R
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import com.dalisyron.supoffice.ui.detail.DetailFragment
 import javax.inject.Inject
 
 class HomeFragment : OnHomeMovieItemClickListener, Fragment() {
@@ -43,12 +42,15 @@ class HomeFragment : OnHomeMovieItemClickListener, Fragment() {
             }
         ))
 
+        viewModel.navigateToDetailFragment.observe(this@HomeFragment, Observer(
+            { Unit ->
+                fragmentManager?.beginTransaction()
+                    ?.replace(R.id.content_frame, DetailFragment())
+                    ?.commit()
+            }
+        ))
         viewModel.onViewCreated()
 
-        MovieService.create().getDiscoverMoviesResponse()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ it -> println(it) }, { it -> println("Error $it") })
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,6 +63,7 @@ class HomeFragment : OnHomeMovieItemClickListener, Fragment() {
     }
 
     override fun onItemClicked(movieInfoEntity: MovieInfoEntity) {
-        Toast.makeText(requireContext(), "Item clicked", Toast.LENGTH_LONG).show()
+//        Toast.makeText(requireContext(), "Item clicked", Toast.LENGTH_LONG).show()
+        viewModel.onMovieItemClicked(movieInfoEntity)
     }
 }
