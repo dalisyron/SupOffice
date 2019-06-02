@@ -19,7 +19,7 @@ class RemoteModule {
 
     @Singleton
     @Provides
-    fun providesOkHttpClient() : OkHttpClient {
+    fun providesOkHttpClient(): OkHttpClient {
         val okHttpClientBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
         okHttpClientBuilder.addInterceptor(
             object : Interceptor {
@@ -38,7 +38,7 @@ class RemoteModule {
 
     @Singleton
     @Provides
-    fun providesMovieService(okHttpClient: OkHttpClient) : MovieService {
+    fun providesMovieService(okHttpClient: OkHttpClient): MovieService {
         return Retrofit.Builder()
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
@@ -49,7 +49,7 @@ class RemoteModule {
 
     @Singleton
     @Provides
-    fun providesMovieRemoteDataSource(movieRemoteDataSourceImpl: MovieRemoteDataSourceImpl) : MovieRemoteDataSource {
+    fun providesMovieRemoteDataSource(movieRemoteDataSourceImpl: MovieRemoteDataSourceImpl): MovieRemoteDataSource {
         return movieRemoteDataSourceImpl
     }
 }

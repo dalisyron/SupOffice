@@ -8,6 +8,7 @@ class MovieServiceImpl : MovieService {
     init {
         instance = MovieService.create()
     }
+
     override fun getDiscoverMoviesResponse(): Single<DiscoverMoviesResponseDto> {
         return instance.getDiscoverMoviesResponse()
     }
@@ -15,7 +16,8 @@ class MovieServiceImpl : MovieService {
     override fun getMovieGenreListResponse(): Single<MovieGenresListResponse> {
         return instance.getMovieGenreListResponse()
     }
+
     companion object {
-        lateinit var instance : MovieService
+        lateinit var instance: MovieService
     }
 }

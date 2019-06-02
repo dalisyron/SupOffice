@@ -11,10 +11,10 @@ import javax.inject.Inject
 
 class HomeViewModel @Inject constructor(private val moviesRepository: MovieRepository) : ViewModel() {
     private val movies_ = MutableLiveData<List<MovieInfoEntity>>()
-    var movies : LiveData<List<MovieInfoEntity>> = movies_
+    var movies: LiveData<List<MovieInfoEntity>> = movies_
 
     private val navigateToDetailFragment_ = MutableLiveData<Unit>()
-    var navigateToDetailFragment : LiveData<Unit> = navigateToDetailFragment_
+    var navigateToDetailFragment: LiveData<Unit> = navigateToDetailFragment_
 
     fun onViewCreated() {
         moviesRepository.getDiscoverMovies()
@@ -22,8 +22,8 @@ class HomeViewModel @Inject constructor(private val moviesRepository: MovieRepos
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ movieItems ->
                 movies_.postValue(movieItems)
-            },{
-                it -> println(it)
+            }, { it ->
+                println(it)
             })
     }
 }

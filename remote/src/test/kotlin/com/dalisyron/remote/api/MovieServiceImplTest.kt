@@ -1,9 +1,6 @@
 package com.dalisyron.remote.api
 
-import com.dalisyron.remote.dto.DiscoverMoviesResponseDto
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class MovieServiceImplTest {
 
@@ -11,16 +8,16 @@ class MovieServiceImplTest {
 
     @Test
     fun getDiscoverMoviesResponse() {
-        instance.getDiscoverMoviesResponse().doOnSuccess{
-            it -> println("Value is $it")
+        instance.getDiscoverMoviesResponse().doOnSuccess { it ->
+            println("Value is $it")
         }.test()
             .assertComplete()
     }
 
     @Test
     fun getMovieGenreListResponse() {
-        instance.getMovieGenreListResponse().doOnSuccess{
-                it -> println("Value is $it")
+        instance.getMovieGenreListResponse().doOnSuccess { it ->
+            println("Value is $it")
         }.test()
             .assertComplete()
     }

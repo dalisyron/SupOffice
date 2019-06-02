@@ -15,6 +15,7 @@ class MyApplication : Application() {
             )
         ).build()
     }
+
     companion object {
         lateinit var component: AppComponent
     }

@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dalisyron.data.entity.MovieInfoEntity
 import com.dalisyron.supoffice.R
 
-class HomeAdapter(private val items : List<MovieInfoEntity>,
-                  private val onHomeMovieItemClickListener: OnHomeMovieItemClickListener) : RecyclerView.Adapter<HomeViewHolder>() {
+class HomeAdapter(
+    private val items: List<MovieInfoEntity>,
+    private val onHomeMovieItemClickListener: OnHomeMovieItemClickListener
+) : RecyclerView.Adapter<HomeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_movie_item, parent, false)
         return HomeViewHolder(view)

@@ -6,18 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.RecyclerView
 import com.dalisyron.supoffice.R
 
 class DetailFragment : Fragment() {
 
-    val viewModelFactory : DetailViewModelFactory by lazy {
+    val viewModelFactory: DetailViewModelFactory by lazy {
         DetailViewModelFactory()
     }
 
-    val viewModel : DetailViewModel by lazy {
+    val viewModel: DetailViewModel by lazy {
         ViewModelProviders.of(this, viewModelFactory).get(DetailViewModel::class.java)
     }
 
