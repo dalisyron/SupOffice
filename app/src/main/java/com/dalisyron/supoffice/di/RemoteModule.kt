@@ -4,6 +4,7 @@ import com.dalisyron.data.datasource.MovieRemoteDataSource
 import com.dalisyron.remote.api.MovieService
 import com.dalisyron.remote.datasource.MovieRemoteDataSourceImpl
 import com.dalisyron.supoffice.BuildConfig
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor
@@ -46,11 +47,5 @@ class RemoteModule {
             .baseUrl(MovieService.BASE_URL)
             .client(okHttpClient)
             .build().create()
-    }
-
-    @Singleton
-    @Provides
-    fun providesMovieRemoteDataSource(movieRemoteDataSourceImpl: MovieRemoteDataSourceImpl): MovieRemoteDataSource {
-        return movieRemoteDataSourceImpl
     }
 }
