@@ -14,7 +14,7 @@ ext {
             rxJava          : "2.2.8",
             rxAndroid       : "2.1.1",
             rxKotlin        : "2.3.0",
-            dagger          : "2.19",
+            dagger          : "2.23.1",
             lifecycle       : "2.0.0",
             materialDesign  : "1.0.0",
             navigation      : "2.0.0",

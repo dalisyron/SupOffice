@@ -19,6 +19,10 @@ class DetailFragment : Fragment() {
         ViewModelProviders.of(this, viewModelFactory).get(DetailViewModel::class.java)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
