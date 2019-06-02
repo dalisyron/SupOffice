@@ -1,25 +1,19 @@
 package com.dalisyron.supoffice.ui.home
-
-
-import android.graphics.Movie
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.dalisyron.data.entity.MovieInfoEntity
 import com.dalisyron.supoffice.MyApplication
 import com.dalisyron.supoffice.R
 import com.dalisyron.supoffice.ui.detail.DetailFragment
+import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
 class HomeFragment : OnHomeMovieItemClickListener, Fragment() {
-    private lateinit var recyclerView: RecyclerView
-
     @Inject
     lateinit var viewModel: HomeViewModel
 
@@ -33,7 +27,6 @@ class HomeFragment : OnHomeMovieItemClickListener, Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(view.context)
 
         viewModel.movies.observe(this@HomeFragment, Observer(
@@ -63,7 +56,6 @@ class HomeFragment : OnHomeMovieItemClickListener, Fragment() {
     }
 
     override fun onItemClicked(movieInfoEntity: MovieInfoEntity) {
-//        Toast.makeText(requireContext(), "Item clicked", Toast.LENGTH_LONG).show()
         viewModel.onMovieItemClicked(movieInfoEntity)
     }
 }
