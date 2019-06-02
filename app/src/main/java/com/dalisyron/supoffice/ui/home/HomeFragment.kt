@@ -43,9 +43,9 @@ class HomeFragment : OnHomeMovieItemClickListener, Fragment() {
         ))
 
         viewModel.navigateToDetailFragment.observe(this@HomeFragment, Observer(
-            { Unit ->
+            { movieInfoEntity ->
                 fragmentManager?.beginTransaction()
-                    ?.replace(R.id.content_frame, DetailFragment())
+                    ?.replace(R.id.content_frame, DetailFragment.create(movieInfoEntity.id))
                     ?.commit()
             }
         ))
