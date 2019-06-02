@@ -1,7 +1,7 @@
 package com.dalisyron.data.entity
 
 data class MovieInfoEntity(
-    val genreIds: List<Int>,
+    val genres: List<String>,
     val id: Int,
     val originalLanguage: String,
     val overview: String,

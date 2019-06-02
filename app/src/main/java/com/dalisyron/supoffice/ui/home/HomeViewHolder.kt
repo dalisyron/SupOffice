@@ -23,8 +23,8 @@ class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         titleTextView.text = movieInfoEntity.title
 
         for (i in 0..MAX_NO_GENRES - 1) {
-            if (i < movieInfoEntity.genreIds.size) {
-                genreTextViews[i].text = movieInfoEntity.genreIds[i].toString()
+            if (i < movieInfoEntity.genres.size) {
+                genreTextViews[i].text = movieInfoEntity.genres[i]
             } else {
                 genreTextViews[i].visibility = View.GONE
             }
