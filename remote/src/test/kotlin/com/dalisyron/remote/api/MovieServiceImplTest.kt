@@ -1,10 +1,17 @@
 package com.dalisyron.remote.api
 
+import org.junit.Before
 import org.junit.Test
+import javax.inject.Inject
 
 class MovieServiceImplTest {
 
-    val instance = MovieServiceImpl()
+    lateinit var instance : MovieService
+
+    @Before
+    fun init() {
+        instance
+    }
 
     @Test
     fun getDiscoverMoviesResponse() {

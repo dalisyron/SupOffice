@@ -23,27 +23,5 @@ interface MovieService {
     companion object {
         const val BASE_URL: String = "https://api.themoviedb.org/3/"
         const val IMAGE_BASE_URL: String = "https://image.tmdb.org/t/p/original"
-
-        fun create(): MovieService {
-            val okHttpClientBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
-            okHttpClientBuilder.addInterceptor(
-                object : Interceptor {
-                    override fun intercept(chain: Interceptor.Chain): Response {
-                        var request = chain.request()
-                        val url =
-                            request.url().newBuilder().addQueryParameter("api_key", "140a29128656a78bf9d8a496df29cb7f")
-                                .build()
-                        request = request.newBuilder().url(url).build()
-                        return chain.proceed(request)
-                    }
-                }
-            )
-            return Retrofit.Builder()
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(BASE_URL)
-                .client(okHttpClientBuilder.build())
-                .build().create()
-        }
     }
 }
